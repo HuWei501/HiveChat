@@ -164,6 +164,21 @@ const Home = () => {
         <div className='container max-w-3xl mx-auto -mt-16 relative items-center justify-center'>
           <h2 className='text-2xl font-bold text-center mb-8'>{greetingText && <>👋 {greetingText}{t('welcomeNotice')}</>}&nbsp;</h2>
           <AdaptiveTextarea model={currentModel} submit={newChat} />
+          <div className='flex flex-wrap gap-2 justify-center mt-4'>
+            {[
+              t('sampleQuestion1'),
+              t('sampleQuestion2'),
+              t('sampleQuestion3'),
+            ].map((question, index) => (
+              <button
+                key={index}
+                onClick={() => newChat(question)}
+                className='px-4 py-2 text-sm text-gray-600 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-full transition-colors cursor-pointer'
+              >
+                {question}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </>
