@@ -49,7 +49,6 @@ const ChatHeader = (props: { isActionsHidden?: boolean }) => {
             onClick={toggleSidebar}
           />
         }
-        <ModelSelect chatId={chat?.id || null} />
       </div>
       {!props.isActionsHidden && <div className='mr-2'>
         {/* <Button type='text'

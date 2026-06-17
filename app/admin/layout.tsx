@@ -8,6 +8,7 @@ import clsx from 'clsx';
 import SearchIcon from "@/app/images/searchIcon.svg";
 import { usePathname } from 'next/navigation';
 import logo from "@/app/images/logo.png";
+import zheyi_logo from "@/app/images/zheyi_logo.png";
 import Assistant from "@/app/images/assistant.svg";
 import ToggleSidebar from "@/app/images/hideSidebar.svg";
 import useAdminSidebarCollapsed from '@/app/store/adminSidebarCollapsed';
@@ -53,8 +54,8 @@ export default function RootLayout({
       )}>
         <div className="flex items-center flex-row flex-grow-0 mb-2 h-10 justify-between">
           <Link href="/" className='flex items-center'>
-            <Image src={logo} className="ml-1" alt="HiveChat logo" width={24} height={24} />
-            <span className='text-xl ml-2'>Hivechat Admin</span>
+            <Image src={zheyi_logo} className="ml-1" alt="AI logo" height={24} />
+            {/*<span className='text-xl ml-2'>启真 AI 病例库</span>*/}
           </Link>
           <Button
             icon={<ToggleSidebar style={{ 'color': '#999', 'fontSize': '20px', 'verticalAlign': 'middle' }} />}
@@ -63,16 +64,16 @@ export default function RootLayout({
           />
         </div>
         <hr className='mb-4' />
-        <div className={clsx('hover:bg-gray-200 rounded-lg p-2', { 'bg-gray-200': pathname.startsWith('/admin/llm') })}>
+        {/*<div className={clsx('hover:bg-gray-200 rounded-lg p-2', { 'bg-gray-200': pathname.startsWith('/admin/llm') })}>
           <Link className='w-full flex' href={"/admin/llm"}>
             <Spark width={22} height={22} alt='spark' /><span className='ml-1 text-sm'>{t('models')}</span>
           </Link>
-        </div>
-        <div className={clsx('hover:bg-gray-200 rounded-lg p-2 mt-1', { 'bg-gray-200': pathname.startsWith('/admin/default-models') })}>
+        </div>*/}
+        {/*<div className={clsx('hover:bg-gray-200 rounded-lg p-2 mt-1', { 'bg-gray-200': pathname.startsWith('/admin/default-models') })}>
           <Link className='w-full flex items-center' href={"/admin/default-models"}>
             <Assistant style={{ 'marginLeft': '3px' }} /><span className='ml-2 text-sm'>{t('defaultModel')}</span>
           </Link>
-        </div>
+        </div>*/}
         <div className={clsx('hover:bg-gray-200 rounded-lg p-2 mt-1', { 'bg-gray-200': pathname.startsWith('/admin/users') })}>
           <Link className='w-full flex' href={"/admin/users/list"}>
             <UserOutlined style={{ 'marginLeft': '3px' }} /><span className='ml-2 text-sm'>{t('users')}</span>
@@ -83,16 +84,16 @@ export default function RootLayout({
             <SearchIcon style={{ 'marginLeft': '1px', 'fontSize': '20px' }} /><span className='ml-2 text-sm'>{t('webSearch')}</span>
           </Link>
         </div>
-        <div className={clsx('hover:bg-gray-200 rounded-lg p-2 mt-1', { 'bg-gray-200': pathname.startsWith('/admin/bot') })}>
+        {/*<div className={clsx('hover:bg-gray-200 rounded-lg p-2 mt-1', { 'bg-gray-200': pathname.startsWith('/admin/bot') })}>
           <Link className='w-full flex' href={"/admin/bot/list"}>
             <Sparkle style={{ 'marginLeft': '2px' }} width={18} height={18} alt='spark'/><span className='ml-2 text-sm'>智能体管理</span>
           </Link>
-        </div>
-        <div className={clsx('hover:bg-gray-200 rounded-lg p-2 mt-1', { 'bg-gray-200': pathname.startsWith('/admin/mcp') })}>
+        </div>*/}
+        {/*<div className={clsx('hover:bg-gray-200 rounded-lg p-2 mt-1', { 'bg-gray-200': pathname.startsWith('/admin/mcp') })}>
           <Link className='w-full flex items-center' href={"/admin/mcp"}>
             <Mcp style={{ 'marginLeft': '3px' }} /><span className='ml-2 text-sm'>{t('mcpServers')}</span>
           </Link>
-        </div>
+        </div>*/}
         <div className={clsx('hover:bg-gray-200 rounded-lg p-2 mt-1', { 'bg-gray-200': pathname.startsWith('/admin/system') })}>
           <Link className='w-full flex' href={"/admin/system"}>
             <SettingOutlined style={{ 'marginLeft': '3px' }} /><span className='ml-2 text-sm'>{t('system')}</span>

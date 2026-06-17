@@ -11,7 +11,7 @@ import { addMessageInServer, getMessagesInServer, deleteMessageInServer, clearMe
 import useGlobalConfigStore from '@/app/store/globalConfig';
 import { getSearchResult } from '@/app/chat/actions/chat';
 import { searchResultType, WebSearchResponse } from '@/types/search';
-import { REFERENCE_PROMPT } from '@/app/config/prompts';
+import { REFERENCE_PROMPT, SYSTEM_PROMPT } from '@/app/config/prompts';
 import { useRouter } from 'next/navigation'
 
 const useChat = (chatId: string) => {
@@ -22,7 +22,7 @@ const useChat = (chatId: string) => {
   const [searchStatus, setSearchStatus] = useState<searchResultType>("none");
   const [chatBot, setChatBot] = useState<LLMApi | null>(null);
   const [responseMessage, setResponseMessage] = useState<ResponseContent>({ content: '', reasoningContent: '' });
-  
+
   // 创建节流的响应消息更新函数，限制更新频率到60fps
   const throttledSetResponseMessage = useMemo(
     () => throttle((content: ResponseContent) => {
@@ -94,7 +94,11 @@ const useChat = (chatId: string) => {
   ) => {
     setResponseStatus("pending");
     const options: ChatOptions = {
-      messages: messages,
+      messages: [
+        { role: 'system' as const, content: SYSTEM_PROMPT },
+        ...messages
+      ],
+      thinking: { type: "disabled" }, // 是否思考
       config: { model: currentModel.id },
       chatId: chatId,
       buildinTools,
@@ -483,7 +487,9 @@ const useChat = (chatId: string) => {
             }
           }
 
-          const messages = [{ role: 'user' as const, content: realSendMessage }];
+          const messages = [
+            { role: 'user' as const, content: realSendMessage }
+          ];
           await sendMessage(messages, searchStatus, searchResponse, [], selectedTools);
           shouldSetNewTitleRef.current([{ role: 'user' as const, content: question }]);
         }

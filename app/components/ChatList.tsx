@@ -253,7 +253,7 @@ const ChatList = () => {
           )}
         </MenuSection>
 
-        <MenuSection
+        {/*<MenuSection
           title={t('myBots')}
           icon={<Spark width={20} height={20} alt='spark' />}
           defaultExpanded={false}
@@ -311,7 +311,7 @@ const ChatList = () => {
               </Link>
             ))}
           </ul>
-        </MenuSection>
+        </MenuSection>*/}
       </div>
 
       {/* 编辑聊天名称的弹窗 */}

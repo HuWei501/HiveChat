@@ -7,6 +7,7 @@ import { signIn } from "next-auth/react";
 import { fetchAppSettings } from '@/app/admin/system/actions';
 import { getActiveAuthProvides } from '@/app/(auth)/actions';
 import logo from "@/app/images/logo.png";
+import zheyi_logo from "@/app/images/zheyi_logo.png";
 import Hivechat from "@/app/images/hivechat.svg";
 import Link from 'next/link';
 import Image from "next/image";
@@ -81,11 +82,11 @@ export default function LoginModal() {
       keyboard={false}
       width={420}
     >
-      <div className="flex items-center justify-center flex-row mb-6 mt-4">
-        <Image src={logo} className="ml-1" alt="HiveChat logo" width={28} height={28} />
-        <Hivechat className="ml-1" alt="HiveChat text" width={120} />
-        <span className="text-center text-xl">{t('login')}</span>
+      <div className="flex items-center justify-center flex-row mb-4 mt-4">
+        <Image src={zheyi_logo} className="ml-1" alt="AI logo" height={32} />
+        {/*<Hivechat className="ml-1" alt="AI text" />*/}
       </div>
+      <div className="text-center text-xl">{t('login')}</div>
       {isPending ? <div className='mt-4 mb-6'>
         <Skeleton title={false} active paragraph={{ rows: 3 }} />
       </div> : <>

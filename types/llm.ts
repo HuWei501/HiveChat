@@ -69,6 +69,7 @@ export type ResponseContent = {
 
 export type ChatOptions = {
   messages: RequestMessage[];
+  thinking?: any;
   config: LLMConfig;
   chatId?: string;
   buildinTools?: any[];

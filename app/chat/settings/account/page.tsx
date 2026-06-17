@@ -203,6 +203,8 @@ const AccountPage = () => {
         onOk={handleOk}
         onCancel={handleCancel}
         width={400}
+        okText={t('okText')}
+        cancelText={t('cancelText')}
         confirmLoading={submiting}
       >
         <Form

@@ -433,7 +433,7 @@ export default class ChatGPTApi implements LLMApi {
               if (thinkContent) {
                 this.reasoning_content += thinkContent;
               }
-            } 
+            }
             // 智谱等特殊情况， </think> 标签可能被拆分在不同 chunk 中
             else if ((this.reasoning_content + deltaContent).includes('</think>')) {
               this.isThinking = false;
@@ -485,6 +485,7 @@ export default class ChatGPTApi implements LLMApi {
         body: JSON.stringify({
           "stream": true,
           "model": `${options.config.model}`,
+          "thinking": options.thinking,
           "messages": messages,
           "stream_options": {
             "include_usage": true
